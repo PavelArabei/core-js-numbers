@@ -9,162 +9,149 @@
 
 /**
  * Returns an area of a rectangle given by width and height.
- *
  * @param {number} width
  * @param {number} height
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
 
 /**
  * Returns a circumference of circle given by radius.
- *
  * @param {number} radius
- * @return {number}
- *
+ // eslint-disable-next-line jsdoc/require-returns-description
+ * @returns {number}
  * @example:
  *   5    => 31.41592653589793
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return 2 * Math.PI * radius;
 }
 
 /**
  * Returns an average of two given numbers.
- *
  * @param {number} value1
  * @param {number} value2
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   5, 5  => 5
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return value1 / 2 + value2 / 2;
 }
 
 /**
  * Returns a distance between two points by cartesian coordinates.
- *
  * @param {number} x1
  * @param {number} y1
  * @param {number} x2
  * @param {number} y2
- *
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   (0,0) (0,1)    => 1
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const firstSquare = (x2 - x1) ** 2;
+  const secondSquare = (y2 - y1) ** 2;
+  return Math.sqrt(firstSquare + secondSquare);
 }
 
 /**
  * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
- *
  * @param {number} a
  * @param {number} b
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   5*x - 10 = 0    => 2
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  if (a === 0) return -b;
+  return -b / a;
 }
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
  * coordinates in Cartesian plane.
  * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
- *
  * @param {number} x1
  * @param {number} y1
  * @param {number} x2
  * @param {number} y2
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   (1,0) (0,1)     => π/2
  *   (0,1) (0,-1)    => π
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dot = x1 * x2 + y1 * y2;
+  const len1 = Math.sqrt(x1 * x1 + y1 * y1);
+  const len2 = Math.sqrt(x2 * x2 + y2 * y2);
+  const cos = dot / (len1 * len2);
+  return Math.acos(cos);
 }
 
 /**
- * Returns a last digit of a integer number.
+ * Returns a last digit of an integer number.
  * The input parameter will always be greater than or equal to zero and will be in decimal notation.
- *
  * @param {number} value
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   100     => 0
  *    37     => 7
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
 
 /**
  * Returns a number by given string representation.
- *
  * @param {string} value
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *    '100'     => 100
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return Number(value);
 }
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
- *
  * @param {number} a
  * @param {number} b
  * @param {number} c
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   1,1,1   => 1.7320508075688772
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 /**
  * Returns the number rounded to specified power of 10.
- *
  * @param {number} num
  * @param {number} pow
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   1234, 0  => 1234
  *   1234, 1  => 1230
@@ -182,10 +169,8 @@ function roundToPowerOfTen(/* num, pow */) {
 /**
  * Returns true is the number is prime; otherwise false.
  * See: https://en.wikipedia.org/wiki/Primality_test
- *
  * @param {number} n
- * @return {bool}
- *
+ * @returns {boolean}
  * @example:
  *   4 => false
  *   5 => true
@@ -203,11 +188,9 @@ function isPrime(/* n */) {
 /**
  * Tries to convert value to number and returns it if conversion was successful;
  * otherwise returns default value passed as a second argument.
- *
  * @param {any} value
  * @param {any} def
- * @return {number}
- *
+ * @returns {number}
  * @example
  *   toNumber(null, 0) => 0
  *   toNumber('test', 0) => 0
@@ -221,10 +204,8 @@ function toNumber(/* value, def */) {
 
 /**
  * Returns the cube of the given number.
- *
  * @param {number} num
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   3  => 27
  *   -2 => -8
@@ -236,10 +217,8 @@ function getCube(/* num */) {
 
 /**
  * Returns the Fibonacci number located at the index position.
- *
  * @param {number} index
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   0  => 0
  *   1  => 1
@@ -253,10 +232,8 @@ function getFibonacciNumber(/* index */) {
 
 /**
  * Returns the sum of all numbers from 1 to n.
- *
  * @param {number} n
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   5  => 15 // (1+2+3+4+5)
  *   10 => 55 // (1+2+3+...+10)
@@ -268,10 +245,8 @@ function getSumToN(/* n */) {
 
 /**
  * Returns the sum of the digits of a given number.
- *
  * @param {number} num
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   123 => 6  // (1+2+3)
  *   202 => 4  // (2+0+2)
@@ -283,10 +258,8 @@ function getSumOfDigits(/* num */) {
 
 /**
  * Returns true if the given number is a power of two, false otherwise.
- *
  * @param {number} num
- * @return {boolean}
- *
+ * @returns {boolean}
  * @example:
  *   4   => true
  *   16  => true
@@ -298,10 +271,8 @@ function isPowerOfTwo(/* num */) {
 
 /**
  * Returns the sine of a number.
- *
  * @param {number} num
- * @return {number}
- *
+ * @returns {number}
  * @example:
  *   0 => 0
  *   Math.PI / 2 => 1
@@ -312,11 +283,9 @@ function getSine(/* num */) {
 
 /**
  * Returns a string representation of a number in a specified base (radix).
- *
  * @param {number} number
  * @param {number} base
- * @return {string}
- *
+ * @returns {string}
  * @example:
  * 255, 16 => 'ff'
  * 2, 2    => '10'
@@ -327,11 +296,9 @@ function numberToStringInBase(/* number, base */) {
 
 /**
  * Returns a string representation of a number in exponential notation.
- *
  * @param {number} number
  * @param {number} fractionDigits
- * @return {string}
- *
+ * @returns {string}
  * @example:
  * 12345, 2    => '1.23e+4'
  */
@@ -341,11 +308,9 @@ function toExponential(/* number, fractionDigits */) {
 
 /**
  * Returns a string representation of a number in fixed-point notation.
- *
  * @param {number} number
  * @param {number} fractionDigits
- * @return {string}
- *
+ * @returns {string}
  * @example:
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
@@ -357,11 +322,9 @@ function toFixed(/* number, fractionDigits */) {
 /**
  * Returns a string representation of a number in normal (fixed-point or exponential)
  * notation rounded to precision significant digits.
- *
  * @param {number} number
  * @param {number} precision
- * @return {string}
- *
+ * @returns {string}
  * @example:
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
@@ -372,10 +335,8 @@ function toPrecision(/* number, precision */) {
 
 /**
  * Returns the primitive value of a Number object.
- *
- * @param {Number} number
- * @return {number}
- *
+ * @param {number} number
+ * @returns {number}
  * @example:
  * new Number(5) => 5
  * Number(-5)    => -5
@@ -386,10 +347,8 @@ function getNumberValue(/* number */) {
 
 /**
  * Returns a boolean value indicating whether the parameter is a number or not.
- *
  * @param {number} number
- * @return {boolean}
- *
+ * @returns {boolean}
  * @example:
  * Infinity => false
  * NaN      => false
@@ -405,10 +364,8 @@ function isNumber(/* number */) {
 
 /**
  * Returns a boolean value indicating whether a number is an integer or not.
- *
  * @param {number} number
- * @return {boolean}
- *
+ * @returns {boolean}
  * @example:
  * 5    => true
  * 5.1  => false
@@ -420,10 +377,8 @@ function isInteger(/* number */) {
 
 /**
  * Returns a floating point number or, if the number cannot be parsed from the argument, returns NaN.
- *
  * @param {string} str
- * @return {number | NaN}
- *
+ * @returns {number | NaN}
  * @example:
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
@@ -435,11 +390,9 @@ function getFloatOnString(/* str */) {
 /**
  * Returns an integer of the specified base or, if the number cannot be parsed
  * from the argument, returns NaN.
- *
  * @param {string} str
  * @param {number} base
- * @return {number | NaN}
- *
+ * @returns {number | NaN}
  * @example:
  * '4.567abcdefgh', 10  => 4
  * 'abcdefgh', 10       => NaN
@@ -452,10 +405,8 @@ function getIntegerOnString(/* str, base */) {
 
 /**
  * Returns whether a number is a safe integer.
- *
  * @param {number} number
- * @return {boolean}
- *
+ * @returns {boolean}
  * @example:
  * 10       => true
  * 3.5      => false
@@ -467,10 +418,8 @@ function isSafeInteger(/* number */) {
 
 /**
  * Returns the smallest integer less than or equal to a given number.
- *
  * @param {number} number
- * @return {number}
- *
+ * @returns {number}
  * @example:
  * 5.9  => 5
  * -5.1 => -6
@@ -481,10 +430,8 @@ function roundToSmallestInteger(/* number */) {
 
 /**
  * Returns the largest integer greater than or equal to a given number.
- *
  * @param {number} number
- * @return {number}
- *
+ * @returns {number}
  * @example:
  * 5.1  => 6
  * -5.9 => -5
@@ -495,10 +442,8 @@ function roundToLargestInteger(/* number */) {
 
 /**
  * Returns the value of a number rounded to the nearest integer.
- *
  * @param {number} number
- * @return {number}
- *
+ * @returns {number}
  * @example:
  * 5.5  => 6
  * 5.4  => 5
@@ -510,10 +455,8 @@ function roundToNearestInteger(/* number */) {
 
 /**
  * Returns the integer part of a number by removing any fractional digits.
- *
  * @param {number} number
- * @return {number}
- *
+ * @returns {number}
  * @example:
  * 5.5  => 5
  * 5.4  => 5
@@ -525,12 +468,10 @@ function getIntegerPartNumber(/* number */) {
 
 /**
  * Returns the sum of numbers.
- *
  * @param {number} x1
  * @param {number} x2
  * @param {number} x3
  * @returns {number}
- *
  * @example:
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
@@ -541,11 +482,9 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
 
 /**
  * Returns the largest number.
- *
  * @param {number} firstNumber
  * @param {number} secondNumber
- * @return {number}
- *
+ * @returns {number}
  * @example:
  * 1, 2   => 2
  * -5, -6 => -5
@@ -557,11 +496,9 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
 
 /**
  * Returns a random integer in the range from min to max.
- *
  * @param {number} min
  * @param {number} max
- * @return {number}
- *
+ * @returns {number}
  * @example:
  * 1, 2  => 1 | 2
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
@@ -573,11 +510,9 @@ function getRandomInteger(/* min, max */) {
 
 /**
  * Returns the length of the hypotenuse of a right triangle.
- *
  * @param {number} a
  * @param {number} b
- * @return {number}
- *
+ * @returns {number}
  * @example:
  * 3, 4 => 5
  */
@@ -588,10 +523,8 @@ function getHypotenuse(/* a, b */) {
 /**
  * Returns count of odd numbers from zero to the resulting number.
  * The resulting number is taken into account.
- *
  * @param {number} number
- * @return {number}
- *
+ * @returns {number}
  * @example:
  * 4  => 2
  * 5  => 3
